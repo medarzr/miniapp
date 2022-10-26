@@ -1,11 +1,20 @@
 import React from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
+import { Provider } from 'react-redux';
+import Home from './Home';
+import store from './redux/store';
+import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   return (
-    <View style={{ flex: 1 }} >
+
+    <Provider store={store} >
+      <GestureHandlerRootView style={{ flex: 1 }}>
         <StatusBar barStyle='dark-content' backgroundColor="transparent" translucent />
-    </View>
+        <Home />
+      </GestureHandlerRootView>
+    </Provider>
   );
 };
 
